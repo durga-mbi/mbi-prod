@@ -51,8 +51,9 @@ router.post(
             const otp = generateOtp();
             const otpHash = await hashOtp(otp);
 
+            const otpExpiresMin = Number(process.env.OTP_EXPIRES_MIN) || 5;
             const otpExpiry = new Date(
-                Date.now() + Number(process.env.OTP_EXPIRES_MIN) * 60 * 1000
+                Date.now() + otpExpiresMin * 60 * 1000
             );
 
             // 🚨 Safety check (prevents Invalid Date error)
@@ -118,7 +119,8 @@ router.post(
             if (user.isVerified)
                 return res.status(400).json({ error: 'Account already verified' });
 
-            if (user.otpAttempts >= Number(process.env.MAX_OTP_ATTEMPTS)) {
+            const maxAttempts = Number(process.env.MAX_OTP_ATTEMPTS) || 3;
+            if (user.otpAttempts >= maxAttempts) {
                 return res
                     .status(403)
                     .json({ error: 'Account locked. Too many OTP attempts.' });
