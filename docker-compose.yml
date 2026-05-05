@@ -40,6 +40,8 @@ services:
     build:
       context: ./MindBrain/frontend
       dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=https://api.mindbrain.co.in/api
     container_name: mindbrain-frontend
     environment:
       - VIRTUAL_HOST=mindbrain.co.in,www.mindbrain.co.in
@@ -71,6 +73,8 @@ services:
     build:
       context: ./MindBotics/client
       dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=https://api.mindbotics.in/api
     container_name: mindbotics-frontend
     environment:
       - VIRTUAL_HOST=mindbotics.in,www.mindbotics.in
