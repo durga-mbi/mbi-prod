@@ -49,9 +49,9 @@ app.get("/", (req, res) => {
   res.send("Server is running fine");
 });
 
-app.use("/", allRoutes);
+app.use("/api", allRoutes);
 app.use("/api/feedback", feedbackRoutes);
-app.use("/api", contactRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.use((req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);

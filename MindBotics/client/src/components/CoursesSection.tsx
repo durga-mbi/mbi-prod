@@ -26,7 +26,7 @@ const CoursesSection = () => {
       try {
         const res = await api.get("/courses");
 
-        if (res.status === 200) {
+        if (res.status === 200 && Array.isArray(res.data)) {
           setCourses(res.data);
         }
       } catch (error) {
