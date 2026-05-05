@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    restart: always
+    networks:
+      - app-network
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: acme-companion
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+    depends_on:
+      - nginx-proxy
+    restart: always
+    networks:
+      - app-network
+
+  # MindBrain Project
+  mindbrain-frontend:
+    build:
+      context: ./MindBrain/frontend
+      dockerfile: Dockerfile
+    container_name: mindbrain-frontend
+    environment:
+      - VIRTUAL_HOST=mindbrain.co.in
+      - LETSENCRYPT_HOST=mindbrain.co.in
+      - LETSENCRYPT_EMAIL=admin@mindbrain.co.in
+    restart: always
+    networks:
+      - app-network
+
+  mindbrain-backend:
+    build:
+      context: ./MindBrain/backend
+      dockerfile: Dockerfile
+    container_name: mindbrain-backend
+    env_file:
+      - ./MindBrain/backend/.env
+    environment:
+      - VIRTUAL_HOST=api.mindbrain.co.in
+      - LETSENCRYPT_HOST=api.mindbrain.co.in
+      - LETSENCRYPT_EMAIL=admin@mindbrain.co.in
+      - VIRTUAL_PORT=5000
+    restart: always
+    networks:
+      - app-network
+
+  # MindBotics Project
+  mindbotics-frontend:
+    build:
+      context: ./MindBotics/client
+      dockerfile: Dockerfile
+    container_name: mindbotics-frontend
+    environment:
+      - VIRTUAL_HOST=mindbotics.in
+      - LETSENCRYPT_HOST=mindbotics.in
+      - LETSENCRYPT_EMAIL=admin@mindbotics.in
+    restart: always
+    networks:
+      - app-network
+
+  mindbotics-backend:
+    build:
+      context: ./MindBotics/server
+      dockerfile: Dockerfile
+    container_name: mindbotics-backend
+    env_file:
+      - ./MindBotics/server/.env
+    environment:
+      - VIRTUAL_HOST=api.mindbotics.in
+      - LETSENCRYPT_HOST=api.mindbotics.in
+      - LETSENCRYPT_EMAIL=admin@mindbotics.in
+      - VIRTUAL_PORT=5000
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  certs:
+  vhost:
+  html:
+  acme:
