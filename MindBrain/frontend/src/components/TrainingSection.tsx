@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaMicrochip, FaRobot, FaPython, FaLaptopCode, FaReact } from "react-icons/fa";
 import { TbDrone } from "react-icons/tb";
@@ -142,9 +143,12 @@ const TrainingSection: React.FC = () => {
                   </p>
                 </div>
 
-                <button className="self-start px-6 py-3 border-2 border-black text-black font-bold uppercase tracking-wider text-[11px] hover:bg-black hover:text-white transition-all shadow-md mt-auto" onClick={() => window.open("https://www.mindbotics.in/courses", "_blank")}>
+                <Link
+                  to="/services/software-training"
+                  className="self-start px-6 py-3 border-2 border-black text-black font-bold uppercase tracking-wider text-[11px] hover:bg-black hover:text-white transition-all shadow-md mt-auto inline-block"
+                >
                   Explore course
-                </button>
+                </Link>
               </motion.div>
             </AnimatePresence>
           </motion.div>

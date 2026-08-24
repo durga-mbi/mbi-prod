@@ -30,6 +30,7 @@ const IoTSolution = lazy(() => import('./Pages/IoTSolution'));
 const IoTProjectDetail = lazy(() => import('./Pages/IoTProjectDetail'));
 const SoftwareTraining = lazy(() => import('./Pages/SoftwareTraining'));
 const TrainingProgramDetail = lazy(() => import('./Pages/TrainingProgramDetail'));
+const Policy = lazy(() => import('./Pages/Policy'));
 const Login = lazy(() => import('./Pages/Login'));
 const AdminPanel = lazy(() => import('./Pages/AdminPanel'));
 
@@ -91,6 +92,7 @@ const App: React.FC = () => {
               <Route path="/careers" element={<Careers />} />
               <Route path="/ourprojects" element={<OurProject />} />
               <Route path="/project/:id" element={<ProjectDetails />} />
+              <Route path="/policy" element={<Policy />} />
             </Route>
 
             <Route element={<RequireAdmin />}>

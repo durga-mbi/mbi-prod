@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaTwitter,
@@ -96,7 +97,7 @@ const Footer: React.FC = () => {
               <FooterLink href="/about">About Us</FooterLink>
               <FooterLink href="/client">Our Clients</FooterLink>
               <FooterLink href="/ourprojects">Our Project</FooterLink>
-              <FooterLink href="/contactus">Contact Us</FooterLink>
+              <FooterLink href="/policy">Policy</FooterLink>
             </ul>
           </div>
 
@@ -171,15 +172,15 @@ const Footer: React.FC = () => {
 
 const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <li className="group relative overflow-hidden">
-    <a
-      href={href}
+    <Link
+      to={href}
       className="block py-1 relative z-10"
     >
       <span className="relative">
         {children}
         <span className="absolute -left-4 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
       </span>
-    </a>
+    </Link>
   </li>
 );
 

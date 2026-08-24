@@ -195,7 +195,7 @@ const Navbar: React.FC = () => {
                       </button>
                       <div className="absolute left-0 mt-0 pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <div className="bg-[#171D26] border border-white/10 rounded-md shadow-lg py-2">
-                          <a href="https://www.mindbotics.in/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-gray-400 hover:bg-white/5 uppercase transition-colors">Mindbotics</a>
+                          {/* <a href="https://www.mindbotics.in/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-gray-400 hover:bg-white/5 uppercase transition-colors">Mindbotics</a> */}
                           {/* <a href="https://mindbrain.co.in/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-gray-400 hover:bg-white/5 uppercase transition-colors">Mindbrain</a> */}
                           <a href="https://mindbrainsphere.com/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-300 hover:text-gray-400 hover:bg-white/5 uppercase transition-colors">Mindbrain Sphere</a>
                         </div>
@@ -301,7 +301,7 @@ const Navbar: React.FC = () => {
                     </svg>
                   </button>
                   <div className={`pl-6 flex-col gap-3 pb-2 pt-1 overflow-hidden transition-all duration-300 ${openMobileMenus[item.name] ? 'max-h-64 flex opacity-100' : 'max-h-0 opacity-0 hidden'}`}>
-                    <a href="https://www.mindbotics.in/" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-400 hover:text-gray-400 uppercase transition-colors">Mindbotics</a>
+                    {/* <a href="https://www.mindbotics.in/" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-400 hover:text-gray-400 uppercase transition-colors">Mindbotics</a> */}
                     {/* <a href="https://mindbrain.co.in/" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-400 hover:text-gray-400 uppercase transition-colors">Mindbrain</a> */}
                     <a href="https://mindbrainsphere.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-400 hover:text-gray-400 uppercase transition-colors">Mindbrain Sphere</a>
                   </div>

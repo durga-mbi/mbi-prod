@@ -275,7 +275,7 @@ const SoftwareTraining: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-xs font-bold tracking-[0.4em] text-gray-400 uppercase mb-6"
           >
-            MindBrain Innovation
+            MindBrain Innovations
           </motion.p>
 
           <motion.h2
@@ -319,7 +319,7 @@ const SoftwareTraining: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="https://www.mindbotics.in/courses" target="_blank"
+              href="#courses"
               className="group inline-flex items-center gap-2 bg-white text-black font-bold px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-gray-200 transition-all"
             >
               Explore Courses <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -378,42 +378,36 @@ const SoftwareTraining: React.FC = () => {
                 slug: "iot-robotics",
                 icon: <Cpu size={28} />,
                 title: "IoT & Robotics",
-                sub: "Embedded Systems",
                 desc: "Hands-on training designed with real-world projects and industry tools. Connect the physical and digital worlds.",
               },
               {
                 slug: "python-ai",
                 icon: <BrainCircuit size={28} />,
                 title: "Python & AI",
-                sub: "Machine Learning",
                 desc: "Hands-on training designed with real-world projects and industry tools. Build intelligent systems and automation pipelines.",
               },
               {
                 slug: "data-science",
                 icon: <Database size={28} />,
                 title: "Data Science",
-                sub: "Analytics & Big Data",
                 desc: "Hands-on training designed with real-world projects and industry tools. Turn raw data into actionable business insights.",
               },
               {
                 slug: "web-development",
                 icon: <Globe size={28} />,
                 title: "Web Development",
-                sub: "MERN Stack",
                 desc: "Hands-on training designed with real-world projects and industry tools. Master MongoDB, Express, React & Node.js.",
               },
               {
                 slug: "cloud-computing",
                 icon: <Cloud size={28} />,
                 title: "Cloud Computing",
-                sub: "AWS, Azure & DevOps",
                 desc: "Hands-on training designed with real-world projects and industry tools. Design and deploy scalable cloud architectures.",
               },
               {
                 slug: "ui-ux-design",
                 icon: <Layers size={28} />,
                 title: "UI/UX Design",
-                sub: "Figma & Design Systems",
                 desc: "Hands-on training designed with real-world projects and industry tools. Craft beautiful, user-centric digital experiences.",
               },
             ].map((course, idx) => (
@@ -425,8 +419,12 @@ const SoftwareTraining: React.FC = () => {
                   <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center text-black mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
                     {course.icon}
                   </div>
-                  <h3 className="text-lg font-black uppercase text-black mb-1">{course.title}</h3>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">{course.sub}</p>
+                  <h3 className="text-lg font-black uppercase text-black mb-2">{course.title}</h3>
+                  <div className="mb-4">
+                    <span className="inline-block text-sm font-extrabold text-black bg-gray-100 border border-gray-200/80 px-3 py-1 rounded-lg tracking-wide shadow-sm">
+                      Price - ₹2,999
+                    </span>
+                  </div>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{course.desc}</p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-black group-hover:text-gray-500 transition-colors mt-auto">
                     View Details <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
