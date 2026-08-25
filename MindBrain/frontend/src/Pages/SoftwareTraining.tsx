@@ -422,7 +422,7 @@ const SoftwareTraining: React.FC = () => {
                   <h3 className="text-lg font-black uppercase text-black mb-2">{course.title}</h3>
                   <div className="mb-4">
                     <span className="inline-block text-sm font-extrabold text-black bg-gray-100 border border-gray-200/80 px-3 py-1 rounded-lg tracking-wide shadow-sm">
-                      Price - ₹2,999
+                      Price - INR 2,999/- per month
                     </span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{course.desc}</p>

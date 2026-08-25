@@ -205,10 +205,10 @@ const Policy: React.FC = () => {
                   <Building2 size={20} className="text-black shrink-0 mt-0.5" />
                   <div className="text-xs">
                     <p className="font-bold text-black uppercase mb-0.5">
-                      Mindbrain Innovations
+                      MINDBRAIN INNOVATIONS PRIVATE LIMITED
                     </p>
-                    <p className="text-gray-500 leading-relaxed">
-                      CIN / Registered in Bhubaneswar, Odisha, India
+                    <p className="text-gray-500 leading-relaxed font-mono">
+                      CIN: U62091OD2023PTC043589
                     </p>
                   </div>
                 </div>
